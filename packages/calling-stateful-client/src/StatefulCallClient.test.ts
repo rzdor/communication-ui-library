@@ -10,7 +10,8 @@ import {
   TranscriptionCallFeature,
   VideoStreamRendererView,
   CallFeatureFactory,
-  CallFeature
+  CallFeature,
+  RaiseHandCallFeature
 } from '@azure/communication-calling';
 import { CommunicationUserKind } from '@azure/communication-common';
 import { toFlatCommunicationIdentifier } from '@internal/acs-ui-common';
@@ -32,6 +33,7 @@ import {
   createStatefulCallClientWithBaseClient,
   MockCall,
   MockCallAgent,
+  MockRaiseHandCallFeatureImpl,
   MockRecordingCallFeatureImpl,
   MockRemoteParticipant,
   MockRemoteVideoStream,
@@ -57,6 +59,9 @@ jest.mock('@azure/communication-calling', () => {
     Features: {
       get Recording(): CallFeatureFactory<RecordingCallFeature> {
         return { callApiCtor: MockRecordingCallFeatureImpl };
+      },
+      get RaiseHand(): CallFeatureFactory<RaiseHandCallFeature> {
+        return { callApiCtor: MockRaiseHandCallFeatureImpl };
       },
       get Transcription(): CallFeatureFactory<TranscriptionCallFeature> {
         return { callApiCtor: MockTranscriptionCallFeatureImpl };
@@ -516,6 +521,54 @@ describe('Stateful call client', () => {
     expect(await waitWithBreakCondition(() => !client.getState().calls[callId]?.recording.isRecordingActive)).toBe(
       true
     );
+  });
+
+  test('should detect raise hand state of call', async () => {
+    const raiseHand = new MockRaiseHandCallFeatureImpl();
+
+    const { client, callId } = await prepareCallWithFeatures(
+      createMockApiFeatures(new Map([[Features.RaiseHand, raiseHand]]))
+    );
+
+    raiseHand.raiseHand();
+    expect(
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+    ).toBe(true);
+
+    raiseHand.lowerHand();
+    expect(
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 0)
+    ).toBe(true);
+
+    raiseHand.raiseHand();
+    expect(
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+    ).toBe(true);
+
+    raiseHand.lowerAllHands();
+    expect(
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 0)
+    ).toBe(true);
+  });
+
+  test('should not update published state for an ended call', async () => {
+    const raiseHand = new MockRaiseHandCallFeatureImpl();
+
+    const { client, agent, callId } = await prepareCallWithFeatures(
+      createMockApiFeatures(new Map([[Features.RaiseHand, raiseHand]]))
+    );
+
+    raiseHand.raiseHand();
+    expect(
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+    ).toBe(true);
+
+    agent.testHelperPopCall();
+    expect(await waitWithBreakCondition(() => Object.keys(client.getState().callsEnded).length === 1)).toBe(true);
+
+    // Once the call ends, expect that call state is no longer updated.
+    raiseHand.lowerHand();
+    expect(await waitWithBreakCondition(() => Object.keys(client.getState().callsEnded).length === 1)).toBe(true);
   });
 
   test('should detect transcription state of call', async () => {

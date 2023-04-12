@@ -106,6 +106,7 @@ export function convertSdkCallToDeclarativeCall(call: CallCommon): CallState {
     remoteParticipants: declarativeRemoteParticipants,
     remoteParticipantsEnded: {},
     recording: { isRecordingActive: false },
+    raiseHand: { raisedHands: [] },
     transcription: { isTranscriptionActive: false },
     screenShareRemoteParticipant: undefined,
     startTime: new Date(),

@@ -14,7 +14,8 @@ import {
   MediaStreamType,
   RemoteParticipantState as RemoteParticipantStatus,
   ScalingMode,
-  VideoDeviceInfo
+  VideoDeviceInfo,
+  RaisedHand
 } from '@azure/communication-calling';
 /* @conditional-compile-remove(video-background-effects) */
 import { VideoEffectName } from '@azure/communication-calling';
@@ -72,6 +73,19 @@ export interface RecordingCallFeatureState {
    * Proxy of {@link @azure/communication-calling#RecordingCallFeature.isRecordingActive}.
    */
   isRecordingActive: boolean;
+}
+
+/**
+ * State only version of {@link @azure/communication-calling#RaiseHandCallFeature}. {@link StatefulCallClient} will
+ * automatically listen for raised hands on the call and update the state exposed by {@link StatefulCallClient} accordingly.
+ *
+ * @public
+ */
+export interface RaiseHandCallFeatureState {
+  /**
+   * Proxy of {@link @azure/communication-calling#RaiseHandCallFeature.raisedHands}.
+   */
+  raisedHands: RaisedHand[];
 }
 
 /**
@@ -283,6 +297,10 @@ export interface CallState {
    * Proxy of {@link @azure/communication-calling#RecordingCallFeature}.
    */
   recording: RecordingCallFeatureState;
+  /**
+   * Proxy of {@link @azure/communication-calling#RaiseHandCallFeature}.
+   */
+  raiseHand: RaiseHandCallFeatureState;
   /**
    * Stores the currently active screenshare participant's key. If there is no screenshare active, then this will be
    * undefined. You can use this key to access the remoteParticipant data in {@link CallState.remoteParticipants} object.

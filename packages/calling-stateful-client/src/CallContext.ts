@@ -6,6 +6,7 @@ import {
   AudioDeviceInfo,
   DeviceAccess,
   DominantSpeakersInfo,
+  RaisedHand,
   ScalingMode,
   VideoDeviceInfo
 } from '@azure/communication-calling';
@@ -326,6 +327,15 @@ export class CallContext {
       const call = draft.calls[this._callIdHistory.latestCallId(callId)];
       if (call) {
         call.recording.isRecordingActive = isRecordingActive;
+      }
+    });
+  }
+
+  public setCallRaisedHands(callId: string, raisedHands: RaisedHand[]): void {
+    this.modifyState((draft: CallClientState) => {
+      const call = draft.calls[this._callIdHistory.latestCallId(callId)];
+      if (call) {
+        call.raiseHand.raisedHands = raisedHands;
       }
     });
   }
