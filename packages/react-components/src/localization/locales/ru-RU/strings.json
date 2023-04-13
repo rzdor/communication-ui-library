@@ -99,6 +99,13 @@
     "tooltipOnContent": "Демонстрация экрана",
     "tooltipOffContent": "Демонстрировать экран"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "Вчера",
     "sunday": "Воскресенье",

@@ -105,6 +105,13 @@
     "tooltipOnContent": "Presenting your screen",
     "tooltipOffContent": "Present your screen"
   },
+  "raiseHandButton": {
+    "onLabel": "Lower Hand",
+    "offLabel": "Raise Hand",
+    "tooltipDisabledContent": "Raise Hand is disabled",
+    "tooltipOnContent": "Raised Hand",
+    "tooltipOffContent": "Raise Hand"
+  },
   "messageThread": {
     "yesterday": "Yesterday",
     "sunday": "Sunday",

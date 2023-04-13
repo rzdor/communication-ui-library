@@ -99,6 +99,13 @@
     "tooltipOnContent": "演示屏幕",
     "tooltipOffContent": "演示您的屏幕"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "昨天",
     "sunday": "星期日",

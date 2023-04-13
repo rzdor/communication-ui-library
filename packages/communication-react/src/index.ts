@@ -221,6 +221,7 @@ export type {
   ReadReceiptsBySenderId,
   ScreenShareButtonProps,
   ScreenShareButtonStrings,
+  RaiseHandButtonStrings,
   SendBoxProps,
   SendBoxStrings,
   SendBoxStylesProps,

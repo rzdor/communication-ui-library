@@ -99,6 +99,13 @@
     "tooltipOnContent": "画面の表示",
     "tooltipOffContent": "画面のプレゼンテーション"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "昨日",
     "sunday": "日曜日",

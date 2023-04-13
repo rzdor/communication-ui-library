@@ -99,6 +99,13 @@
     "tooltipOnContent": "Apresentando sua tela",
     "tooltipOffContent": "Apresentar sua tela"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "Ontem",
     "sunday": "Domingo",

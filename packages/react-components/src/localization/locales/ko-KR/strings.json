@@ -99,6 +99,13 @@
     "tooltipOnContent": "화면을 프레젠테이션하는 중",
     "tooltipOffContent": "화면 프레젠테이션"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "어제",
     "sunday": "일요일",

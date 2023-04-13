@@ -138,6 +138,9 @@ export type {
 export { ScreenShareButton } from './ScreenShareButton';
 export type { ScreenShareButtonProps, ScreenShareButtonStrings } from './ScreenShareButton';
 
+export { RaiseHandButton } from './RaiseHandButton';
+export type { RaiseHandButtonProps, RaiseHandButtonStrings } from './RaiseHandButton';
+
 export { VideoTile } from './VideoTile';
 export type { VideoTileProps, VideoTileStylesProps } from './VideoTile';
 /* @conditional-compile-remove(PSTN-calls) */

@@ -99,6 +99,13 @@
     "tooltipOnContent": "Ekranınızı sunuluyor",
     "tooltipOffContent": "Ekranınızı sunun"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "Dün",
     "sunday": "Pazar",

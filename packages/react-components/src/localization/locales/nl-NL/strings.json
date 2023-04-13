@@ -99,6 +99,13 @@
     "tooltipOnContent": "Uw scherm presenteren",
     "tooltipOffContent": "Uw scherm presenteren"
   },
+  "raiseHandButton": {
+    "onLabel": "TODO: translate",
+    "offLabel": "TODO: translate",
+    "tooltipDisabledContent": "TODO: translate",
+    "tooltipOnContent": "TODO: translate",
+    "tooltipOffContent": "TODO: translate"
+  },
   "messageThread": {
     "yesterday": "Gisteren",
     "sunday": "Zondag",
