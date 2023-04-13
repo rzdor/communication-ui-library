@@ -177,6 +177,8 @@ export class AzureCommunicationCallWithChatAdapter implements CallWithChatAdapte
     this.unmute.bind(this);
     this.startScreenShare.bind(this);
     this.stopScreenShare.bind(this);
+    this.raiseHand.bind(this);
+    this.lowerHand.bind(this);
     this.removeParticipant.bind(this);
     this.createStreamView.bind(this);
     this.disposeStreamView.bind(this);
@@ -326,6 +328,14 @@ export class AzureCommunicationCallWithChatAdapter implements CallWithChatAdapte
   /** Stop the current active screen share. */
   public async stopScreenShare(): Promise<void> {
     await this.callAdapter.stopScreenShare();
+  }
+  /** Raise hand for local user. */
+  public async raiseHand(): Promise<void> {
+    await this.callAdapter.raiseHand();
+  }
+  /** Lower hand for local user. */
+  public async lowerHand(): Promise<void> {
+    await this.callAdapter.raiseHand();
   }
   /** Create a stream view for a remote participants video feed. */
   public async createStreamView(

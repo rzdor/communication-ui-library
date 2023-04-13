@@ -73,6 +73,11 @@ export const getIsScreenSharingOn = (state: CallClientState, props: CallingBaseS
 /**
  * @private
  */
+export const getIsRaisedHand = (state: CallClientState, props: CallingBaseSelectorProps): boolean | undefined => true;
+
+/**
+ * @private
+ */
 export const getIsMuted = (state: CallClientState, props: CallingBaseSelectorProps): boolean | undefined =>
   state.calls[props.callId]?.isMuted;
 

@@ -91,6 +91,12 @@ export class MockCallAdapter implements CallAdapter {
   stopScreenShare(): Promise<void> {
     throw Error('stopScreenShare not implemented');
   }
+  raiseHand(): Promise<void> {
+    throw Error('raiseHand not implemented');
+  }
+  lowerHand(): Promise<void> {
+    throw Error('lowerHand not implemented');
+  }
   removeParticipant(): Promise<void> {
     throw Error('removeParticipant not implemented');
   }
@@ -173,6 +179,7 @@ const defaultCallAdapterState: CallAdapterState = {
     direction: 'Incoming',
     transcription: { isTranscriptionActive: false },
     recording: { isRecordingActive: false },
+    raiseHand: { raisedHands: [] },
     startTime: new Date(500000000000),
     endTime: new Date(500000000000),
     diagnostics: { network: { latest: {} }, media: { latest: {} } },

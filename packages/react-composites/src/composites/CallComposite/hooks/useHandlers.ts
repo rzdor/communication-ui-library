@@ -69,6 +69,12 @@ const createCompositeHandlers = memoizeOne(
     onStopScreenShare: async () => {
       await adapter.stopScreenShare();
     },
+    onRaiseHand: async () => {
+      await adapter.raiseHand();
+    },
+    onLowerHand: async () => {
+      await adapter.lowerHand();
+    },
     onToggleCamera: async (options) => {
       isCameraOn(adapter.getState()) ? await adapter.stopCamera() : await adapter.startCamera(options);
     },
@@ -79,6 +85,9 @@ const createCompositeHandlers = memoizeOne(
       return adapter.getState().call?.isScreenSharingOn
         ? await adapter.stopScreenShare()
         : await adapter.startScreenShare();
+    },
+    onToggleRaiseHand: async () => {
+      await adapter.raiseHand();
     },
     onStartLocalVideo: async () => {
       if (adapter.getState().call) {

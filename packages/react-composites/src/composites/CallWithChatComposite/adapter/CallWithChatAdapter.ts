@@ -145,6 +145,18 @@ export interface CallWithChatAdapterManagement {
    */
   stopScreenShare(): Promise<void>;
   /**
+   * Raise hand for local user.
+   *
+   * @public
+   */
+  raiseHand(): Promise<void>;
+  /**
+   * Lower hand for local user.
+   *
+   * @public
+   */
+  lowerHand(): Promise<void>;
+  /**
    * Create the html view for a stream.
    *
    * @remarks

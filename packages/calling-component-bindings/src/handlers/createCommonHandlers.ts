@@ -51,6 +51,9 @@ export interface CommonCallingHandlers {
   onStopScreenShare: () => Promise<void>;
   onToggleScreenShare: () => Promise<void>;
   onHangUp: (forEveryone?: boolean) => Promise<void>;
+  onRaiseHand: () => Promise<void>;
+  onLowerHand: () => Promise<void>;
+  onToggleRaiseHand: () => Promise<void>;
   /* @conditional-compile-remove(PSTN-calls) */
   onToggleHold: () => Promise<void>;
   /* @conditional-compile-remove(PSTN-calls) */
@@ -245,6 +248,12 @@ export const createDefaultCommonCallingHandlers = memoizeOne(
     const onToggleScreenShare = async (): Promise<void> =>
       call?.isScreenSharingOn ? await onStopScreenShare() : await onStartScreenShare();
 
+    const onRaiseHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.raiseHand();
+
+    const onLowerHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.lowerHand();
+
+    const onToggleRaiseHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.raiseHand();
+
     const onHangUp = async (forEveryone?: boolean): Promise<void> =>
       await call?.hangUp({ forEveryone: forEveryone === true ? true : false });
 
@@ -421,9 +430,12 @@ export const createDefaultCommonCallingHandlers = memoizeOne(
       onSelectSpeaker,
       onStartScreenShare,
       onStopScreenShare,
+      onRaiseHand,
+      onLowerHand,
       onToggleCamera,
       onToggleMicrophone,
       onToggleScreenShare,
+      onToggleRaiseHand,
       onCreateLocalStreamView,
       onCreateRemoteStreamView,
       onStartLocalVideo,

@@ -71,6 +71,11 @@ export type CommonCallControlOptions = {
    * @defaultValue true
    */
   screenShareButton?: boolean | { disabled: boolean };
+  /**
+   * Show, Hide or Disable the screen share button during a call.
+   * @defaultValue true
+   */
+  raiseHandButton?: boolean | { disabled: boolean };
   /* @conditional-compile-remove(PSTN-calls) */
   /* @conditional-compile-remove(one-to-n-calling) */
   /**

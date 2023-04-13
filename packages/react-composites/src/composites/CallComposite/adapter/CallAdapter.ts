@@ -365,6 +365,18 @@ export interface CallAdapterCallOperations {
    */
   stopScreenShare(): Promise<void>;
   /**
+   * Raise hand for current user
+   *
+   * @public
+   */
+  raiseHand(): Promise<void>;
+  /**
+   * lower hand for current user
+   *
+   * @public
+   */
+  lowerHand(): Promise<void>;
+  /**
    * Remove a participant from the call.
    *
    * @param userId - Id of the participant to be removed

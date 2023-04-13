@@ -10,6 +10,7 @@ import {
   getDeviceManager,
   getIsMuted,
   getIsScreenSharingOn,
+  getIsRaisedHand,
   getLocalVideoStreams
 } from './baseSelectors';
 /* @conditional-compile-remove(PSTN-calls) */
@@ -113,6 +114,36 @@ export const screenShareButtonSelector: ScreenShareButtonSelector = reselect.cre
   (isScreenSharingOn, /* @conditional-compile-remove(PSTN-calls) */ callState) => {
     return {
       checked: isScreenSharingOn,
+      /* @conditional-compile-remove(PSTN-calls) */
+      disabled: callState === 'InLobby' ? true : callState === 'Connecting' ?? false
+    };
+  }
+);
+
+/**
+ * Selector type for {@link RaiseHandButton} component.
+ *
+ * @public
+ */
+export type RaiseHandButtonSelector = (
+  state: CallClientState,
+  props: CallingBaseSelectorProps
+) => {
+  checked?: boolean;
+  /* @conditional-compile-remove(PSTN-calls) */
+  disabled?: boolean;
+};
+
+/**
+ * Selector for {@link RaiseHandButton} component.
+ *
+ * @public
+ */
+export const raiseHandButtonSelector: RaiseHandButtonSelector = reselect.createSelector(
+  [getIsRaisedHand, /* @conditional-compile-remove(PSTN-calls) */ getCallState],
+  (isRaisedHand, /* @conditional-compile-remove(PSTN-calls) */ callState) => {
+    return {
+      checked: isRaisedHand,
       /* @conditional-compile-remove(PSTN-calls) */
       disabled: callState === 'InLobby' ? true : callState === 'Connecting' ?? false
     };
