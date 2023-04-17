@@ -40,7 +40,9 @@ import {
   WifiWarning20Filled,
   SpeakerMute16Filled,
   MicProhibited16Filled,
-  VideoProhibited16Filled
+  VideoProhibited16Filled,
+  HandLeft16Filled,
+  HandLeft16Regular
 } from '@fluentui/react-icons';
 /* @conditional-compile-remove(call-readiness) */
 import { Important20Filled } from '@fluentui/react-icons';
@@ -219,6 +221,8 @@ export const DEFAULT_COMPONENT_ICONS = {
   ControlButtonParticipantsContextualMenuItem: <People20Regular />,
   ControlButtonScreenShareStart: <ShareScreenStart20Filled />,
   ControlButtonScreenShareStop: <ShareScreenStop20Filled />,
+  ControlButtonRaiseHand: <HandLeft16Regular />,
+  ControlButtonLowerHand: <HandLeft16Filled />,
   /* @conditional-compile-remove(file-sharing) */
   CancelFileUpload: <Dismiss16Regular />,
   /* @conditional-compile-remove(file-sharing) */

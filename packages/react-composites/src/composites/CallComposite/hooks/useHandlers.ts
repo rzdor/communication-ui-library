@@ -87,7 +87,7 @@ const createCompositeHandlers = memoizeOne(
         : await adapter.startScreenShare();
     },
     onToggleRaiseHand: async () => {
-      await adapter.raiseHand();
+      adapter.getState().call?.raiseHand.isUserRaisedHand ? await adapter.lowerHand() : await adapter.raiseHand();
     },
     onStartLocalVideo: async () => {
       if (adapter.getState().call) {

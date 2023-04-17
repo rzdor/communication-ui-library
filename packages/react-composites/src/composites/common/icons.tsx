@@ -150,6 +150,8 @@ export type CallCompositeIcons = {
   ControlButtonParticipants?: JSX.Element;
   ControlButtonScreenShareStart?: JSX.Element;
   ControlButtonScreenShareStop?: JSX.Element;
+  ControlButtonRaiseHand?: JSX.Element;
+  ControlButtonLowerHand?: JSX.Element;
   ErrorBarCallCameraAccessDenied?: JSX.Element;
   ErrorBarCallCameraAlreadyInUse?: JSX.Element;
   ErrorBarCallLocalVideoFreeze?: JSX.Element;

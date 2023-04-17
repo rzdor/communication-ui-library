@@ -30,7 +30,7 @@ export class RaiseHandSubscriber {
     this._raiseHand.off('loweredHandEvent', this.isRaisedHandChanged);
   };
 
-  private isRaisedHandChanged = (): void => {
+  private isRaisedHandChanged = (event): void => {
     this._context.setCallRaisedHands(this._callIdRef.callId, this._raiseHand.getRaisedHands());
   };
 }

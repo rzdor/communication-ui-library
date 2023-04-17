@@ -17,6 +17,7 @@ import { Microphone } from '../../CallComposite/components/buttons/Microphone';
 import { Camera } from '../../CallComposite/components/buttons/Camera';
 import { ScreenShare } from '../../CallComposite/components/buttons/ScreenShare';
 import { EndCall } from '../../CallComposite/components/buttons/EndCall';
+import { RaiseHand } from '../../CallComposite/components/buttons/RaiseHand';
 import { MoreButton } from '../MoreButton';
 import { ContainerRectProps } from '../ContainerRectProps';
 /* @conditional-compile-remove(control-bar-button-injection) */
@@ -249,6 +250,14 @@ export const CommonCallControlBar = (props: CommonCallControlBarProps & Containe
                 */}
                 <div ref={controlBarContainerRef}>
                   <ControlBar layout="horizontal" styles={centerContainerStyles}>
+                    {isEnabled(options.raiseHandButton) && (
+                      <RaiseHand
+                        displayType={options.displayType}
+                        styles={commonButtonStyles}
+                        /* @conditional-compile-remove(PSTN-calls) */ /* @conditional-compile-remove(one-to-n-calling) */
+                        disabled={props.disableButtonsForHoldScreen || isDisabled(options.microphoneButton)}
+                      />
+                    )}
                     {isEnabled(options.microphoneButton) && (
                       <Microphone
                         displayType={options.displayType}

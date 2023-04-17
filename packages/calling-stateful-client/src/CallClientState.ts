@@ -86,6 +86,7 @@ export interface RaiseHandCallFeatureState {
    * Proxy of {@link @azure/communication-calling#RaiseHandCallFeature.raisedHands}.
    */
   raisedHands: RaisedHand[];
+  isUserRaisedHand: boolean;
 }
 
 /**

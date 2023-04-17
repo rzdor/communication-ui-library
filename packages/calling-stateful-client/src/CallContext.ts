@@ -148,6 +148,8 @@ export class CallContext {
         existingCall.remoteParticipants = call.remoteParticipants;
         existingCall.transcription.isTranscriptionActive = call.transcription.isTranscriptionActive;
         existingCall.recording.isRecordingActive = call.recording.isRecordingActive;
+        existingCall.raiseHand.raisedHands = call.raiseHand.raisedHands;
+        existingCall.raiseHand.isUserRaisedHand = call.raiseHand.isUserRaisedHand;
         /* @conditional-compile-remove(rooms) */
         existingCall.role = call.role;
         /* @conditional-compile-remove(total-participant-count) */
@@ -336,6 +338,11 @@ export class CallContext {
       const call = draft.calls[this._callIdHistory.latestCallId(callId)];
       if (call) {
         call.raiseHand.raisedHands = raisedHands;
+        const isLocalRaisedHand = raisedHands.find(
+          (raisedHand) =>
+            toFlatCommunicationIdentifier(raisedHand.identifier) === toFlatCommunicationIdentifier(this._state.userId)
+        );
+        call.raiseHand.isUserRaisedHand = isLocalRaisedHand ? true : false;
       }
     });
   }

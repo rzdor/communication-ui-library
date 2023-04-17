@@ -9,7 +9,8 @@ import {
   DevicesButton,
   ParticipantList,
   ScreenShareButton,
-  VideoGallery
+  VideoGallery,
+  RaiseHandButton
 } from '@internal/react-components';
 /* @conditional-compile-remove(dialpad) */ /* @conditional-compile-remove(PSTN-calls) */
 import { Dialpad } from '@internal/react-components';
@@ -23,7 +24,9 @@ import {
   DevicesButtonSelector,
   devicesButtonSelector,
   ScreenShareButtonSelector,
-  screenShareButtonSelector
+  screenShareButtonSelector,
+  RaiseHandButtonSelector,
+  raiseHandButtonSelector
 } from '../callControlSelectors';
 /* @conditional-compile-remove(PSTN-calls) */
 import { holdButtonSelector, HoldButtonSelector } from '../callControlSelectors';
@@ -99,6 +102,8 @@ export type GetSelector<Component extends (props: any) => JSX.Element | undefine
   ? CameraButtonSelector
   : AreEqual<Component, typeof ScreenShareButton> extends true
   ? ScreenShareButtonSelector
+  : AreEqual<Component, typeof RaiseHandButton> extends true
+  ? RaiseHandButtonSelector
   : AreEqual<Component, typeof ParticipantList> extends true
   ? ParticipantListSelector
   : AreEqual<Component, typeof ParticipantsButton> extends true
@@ -148,6 +153,8 @@ const findSelector = (component: (props: any) => JSX.Element | undefined): any =
       return cameraButtonSelector;
     case ScreenShareButton:
       return screenShareButtonSelector;
+    case RaiseHandButton:
+      return raiseHandButtonSelector;
     case DevicesButton:
       return devicesButtonSelector;
     case ParticipantList:

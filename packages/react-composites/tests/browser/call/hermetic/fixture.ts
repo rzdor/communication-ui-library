@@ -67,6 +67,7 @@ export function defaultMockCallAdapterState(participants?: MockRemoteParticipant
       direction: 'Incoming',
       transcription: { isTranscriptionActive: false },
       recording: { isRecordingActive: false },
+      raiseHand: { raisedHands: [] },
       startTime: new Date(500000000000),
       endTime: new Date(500000000000),
       diagnostics: { network: { latest: {} }, media: { latest: {} } },

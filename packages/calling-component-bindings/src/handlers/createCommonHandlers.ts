@@ -252,7 +252,21 @@ export const createDefaultCommonCallingHandlers = memoizeOne(
 
     const onLowerHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.lowerHand();
 
-    const onToggleRaiseHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.raiseHand();
+    const onToggleRaiseHand = async (): Promise<void> => {
+      const raiseHandFeature = call?.feature(Features.RaiseHand);
+      const localUserId = callClient.getState().userId;
+      const isLocalRaisedHand = raiseHandFeature
+        ?.getRaisedHands()
+        .find(
+          (publishedState) =>
+            toFlatCommunicationIdentifier(publishedState.identifier) === toFlatCommunicationIdentifier(localUserId)
+        );
+      if (isLocalRaisedHand) {
+        await raiseHandFeature?.lowerHand();
+      } else {
+        await raiseHandFeature?.raiseHand();
+      }
+    };
 
     const onHangUp = async (forEveryone?: boolean): Promise<void> =>
       await call?.hangUp({ forEveryone: forEveryone === true ? true : false });
