@@ -179,7 +179,7 @@ const defaultCallAdapterState: CallAdapterState = {
     direction: 'Incoming',
     transcription: { isTranscriptionActive: false },
     recording: { isRecordingActive: false },
-    raiseHand: { raisedHands: [] },
+    raiseHand: { raisedHands: [], isUserRaisedHand: false },
     startTime: new Date(500000000000),
     endTime: new Date(500000000000),
     diagnostics: { network: { latest: {} }, media: { latest: {} } },

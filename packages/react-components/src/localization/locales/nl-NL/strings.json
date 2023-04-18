@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Naamloze deelnemer",
     "participantStateConnecting": "Bellen...",
     "participantStateRinging": "Bellen...",
-    "participantStateHold": "In de wacht"
+    "participantStateHold": "In de wacht",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} typt ...",

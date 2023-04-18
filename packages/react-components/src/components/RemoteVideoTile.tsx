@@ -173,6 +173,7 @@ export const _RemoteVideoTile = React.memo(
           onRenderPlaceholder={onRenderAvatar}
           isMuted={remoteParticipant.isMuted}
           isSpeaking={remoteParticipant.isSpeaking}
+          isRaisedHand={remoteParticipant.isRaisedHand}
           showMuteIndicator={showMuteIndicator}
           personaMinSize={props.personaMinSize}
           showLabel={props.showLabel}

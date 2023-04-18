@@ -18,7 +18,8 @@ export const memoizedConvertAllremoteParticipants = memoizeFnAll(
     state: RemoteParticipantState,
     isMuted: boolean,
     isScreenSharing: boolean,
-    isSpeaking: boolean
+    isSpeaking: boolean,
+    isRaisedHand: boolean
   ): CallParticipantListParticipant => {
     return convertRemoteParticipantToParticipantListParticipant(
       userId,
@@ -26,7 +27,8 @@ export const memoizedConvertAllremoteParticipants = memoizeFnAll(
       state,
       isMuted,
       isScreenSharing,
-      isSpeaking
+      isSpeaking,
+      isRaisedHand
     );
   }
 );
@@ -37,7 +39,8 @@ const convertRemoteParticipantToParticipantListParticipant = (
   state: RemoteParticipantState,
   isMuted: boolean,
   isScreenSharing: boolean,
-  isSpeaking: boolean
+  isSpeaking: boolean,
+  isRaisedHand: boolean
 ): CallParticipantListParticipant => {
   const identifier = fromFlatCommunicationIdentifier(userId);
   return {
@@ -47,6 +50,7 @@ const convertRemoteParticipantToParticipantListParticipant = (
     isMuted,
     isScreenSharing,
     isSpeaking,
+    isRaisedHand,
     // ACS users can not remove Teams users.
     // Removing unknown types of users is undefined.
     isRemovable:
@@ -66,6 +70,7 @@ export const memoizedConvertAllremoteParticipantsBeta = memoizeFnAll(
     isMuted: boolean,
     isScreenSharing: boolean,
     isSpeaking: boolean,
+    isRaisedHand: boolean,
     role: Role
   ): CallParticipantListParticipant => {
     return convertRemoteParticipantToParticipantListParticipantBeta(
@@ -75,6 +80,7 @@ export const memoizedConvertAllremoteParticipantsBeta = memoizeFnAll(
       isMuted,
       isScreenSharing,
       isSpeaking,
+      isRaisedHand,
       role
     );
   }
@@ -88,6 +94,7 @@ const convertRemoteParticipantToParticipantListParticipantBeta = (
   isMuted: boolean,
   isScreenSharing: boolean,
   isSpeaking: boolean,
+  isRaisedHand: boolean,
   role: Role
 ): CallParticipantListParticipant => {
   return {
@@ -97,7 +104,8 @@ const convertRemoteParticipantToParticipantListParticipantBeta = (
       state,
       isMuted,
       isScreenSharing,
-      isSpeaking
+      isSpeaking,
+      isRaisedHand
     ),
     role
   };

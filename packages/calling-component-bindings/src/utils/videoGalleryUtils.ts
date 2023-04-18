@@ -43,6 +43,7 @@ export const _videoGalleryRemoteParticipantsMemo = (
             toFlatCommunicationIdentifier(participant.identifier),
             participant.isMuted,
             checkIsSpeaking(participant),
+            participant.isRaisedHand,
             participant.videoStreams,
             state,
             participant.displayName
@@ -57,6 +58,7 @@ const memoizedAllConvertRemoteParticipant = memoizeFnAll(
     userId: string,
     isMuted: boolean,
     isSpeaking: boolean,
+    isRaisedHand: boolean,
     videoStreams: { [key: number]: RemoteVideoStreamState },
     state: RemoteParticipantConnectionState,
     displayName?: string
@@ -65,6 +67,7 @@ const memoizedAllConvertRemoteParticipant = memoizeFnAll(
       userId,
       isMuted,
       isSpeaking,
+      isRaisedHand,
       videoStreams,
       state,
       displayName
@@ -77,6 +80,7 @@ export const convertRemoteParticipantToVideoGalleryRemoteParticipant = (
   userId: string,
   isMuted: boolean,
   isSpeaking: boolean,
+  isRaisedHand: boolean,
   videoStreams: { [key: number]: RemoteVideoStreamState },
   state: RemoteParticipantConnectionState,
   displayName?: string
@@ -105,6 +109,7 @@ export const convertRemoteParticipantToVideoGalleryRemoteParticipant = (
     displayName,
     isMuted,
     isSpeaking,
+    isRaisedHand,
     videoStream,
     screenShareStream,
     isScreenSharingOn: screenShareStream !== undefined && screenShareStream.isAvailable,

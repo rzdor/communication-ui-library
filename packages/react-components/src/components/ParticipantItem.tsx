@@ -65,6 +65,8 @@ export interface ParticipantItemStrings {
   sharingIconLabel: string;
   /** Label for the muted icon in participant state stack  */
   mutedIconLabel: string;
+  /** Label for the raised hand icon in participant state stack  */
+  raisedHandIconLabel: string;
   /** placeholder text for participants who does not have a display name*/
   displayNamePlaceholder?: string;
   /* @conditional-compile-remove(one-to-n-calling) */

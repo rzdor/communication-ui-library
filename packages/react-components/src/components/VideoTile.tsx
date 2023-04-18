@@ -127,6 +127,8 @@ export interface VideoTileProps {
   noVideoAvailableAriaLabel?: string;
   /** Whether the participant in the videoTile is speaking. Shows a speaking indicator (border). */
   isSpeaking?: boolean;
+  /** Whether the participant is raised hand. Show a indicator (border) */
+  isRaisedHand?: boolean;
 
   /* @conditional-compile-remove(one-to-n-calling) */
   /* @conditional-compile-remove(PSTN-calls) */
@@ -233,6 +235,7 @@ export const VideoTile = (props: VideoTileProps): JSX.Element => {
     userId,
     noVideoAvailableAriaLabel,
     isSpeaking,
+    isRaisedHand,
     personaMinSize = DEFAULT_PERSONA_MIN_SIZE_PX,
     personaMaxSize = DEFAULT_PERSONA_MAX_SIZE_PX,
     /* @conditional-compile-remove(pinned-participants) */
@@ -335,11 +338,11 @@ export const VideoTile = (props: VideoTileProps): JSX.Element => {
           background: theme.palette.neutralLighter,
           borderRadius: theme.effects.roundedCorner4
         },
-        isSpeaking && {
+        (isSpeaking || isRaisedHand) && {
           '&::after': {
             content: `''`,
             position: 'absolute',
-            border: `0.25rem solid ${theme.palette.themePrimary}`,
+            border: `0.25rem solid ${isSpeaking ? theme.palette.themePrimary : theme.palette.orangeLighter}`,
             borderRadius: theme.effects.roundedCorner4,
             width: '100%',
             height: '100%',

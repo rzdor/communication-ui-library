@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Participante Sem Nome",
     "participantStateConnecting": "Chamando...",
     "participantStateRinging": "Chamando...",
-    "participantStateHold": "Em espera"
+    "participantStateHold": "Em espera",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} está digitando ...",

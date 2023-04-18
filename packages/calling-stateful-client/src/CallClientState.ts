@@ -226,6 +226,8 @@ export interface RemoteParticipantState {
    * Proxy of {@link @azure/communication-calling#RemoteParticipant.role}.
    */
   role?: ParticipantRole;
+
+  isRaisedHand: boolean;
 }
 
 /**
@@ -555,6 +557,9 @@ export type CallErrorTarget =
   | 'Call.hangUp'
   | 'Call.hold'
   | 'Call.mute'
+  | 'Call.admit'
+  | 'Call.rejectParticipant'
+  | 'Call.admitAll'
   | /* @conditional-compile-remove(calling-beta-sdk) */ 'Call.muteIncomingAudio'
   | 'Call.off'
   | 'Call.on'

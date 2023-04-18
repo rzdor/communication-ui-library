@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Unbenannter Teilnehmer",
     "participantStateConnecting": "Anrufen...",
     "participantStateRinging": "Anrufen...",
-    "participantStateHold": "In der Warteschleife"
+    "participantStateHold": "In der Warteschleife",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} schreibt ...",

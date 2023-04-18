@@ -9,7 +9,8 @@ import {
   getRemoteParticipants,
   getIsScreenSharingOn,
   getIsMuted,
-  CallingBaseSelectorProps
+  CallingBaseSelectorProps,
+  getIsRaisedHand
 } from './baseSelectors';
 import { CallParticipantListParticipant } from '@internal/react-components';
 import { _isRingingPSTNParticipant, _updateUserDisplayNames } from './utils/callUtils';
@@ -51,6 +52,7 @@ const convertRemoteParticipantsToParticipantListParticipants = (
             participant.isMuted,
             isScreenSharing,
             participant.isSpeaking,
+            participant.isRaisedHand,
             /* @conditional-compile-remove(rooms) */ participant.role
           );
         })
@@ -91,13 +93,14 @@ export type ParticipantListSelector = (
  * @public
  */
 export const participantListSelector: ParticipantListSelector = createSelector(
-  [getIdentifier, getDisplayName, getRemoteParticipants, getIsScreenSharingOn, getIsMuted],
+  [getIdentifier, getDisplayName, getRemoteParticipants, getIsScreenSharingOn, getIsMuted, getIsRaisedHand],
   (
     userId,
     displayName,
     remoteParticipants,
     isScreenSharingOn,
-    isMuted
+    isMuted,
+    isRaisedHand
   ): {
     participants: CallParticipantListParticipant[];
     myUserId: string;
@@ -107,11 +110,13 @@ export const participantListSelector: ParticipantListSelector = createSelector(
           updateUserDisplayNamesTrampoline(Object.values(remoteParticipants))
         )
       : [];
+    // add local participant to the remote list
     participants.push({
       userId: userId,
       displayName: displayName,
       isScreenSharing: isScreenSharingOn,
       isMuted: isMuted,
+      isRaisedHand: isRaisedHand,
       state: 'Connected',
       // Local participant can never remove themselves.
       isRemovable: false

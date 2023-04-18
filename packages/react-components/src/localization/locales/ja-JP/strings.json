@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "名前のない参加者",
     "participantStateConnecting": "呼び出し中...",
     "participantStateRinging": "呼び出し中...",
-    "participantStateHold": "保留中"
+    "participantStateHold": "保留中",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} さんが入力しています...",

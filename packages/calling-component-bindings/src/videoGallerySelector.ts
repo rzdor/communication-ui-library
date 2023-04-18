@@ -81,6 +81,7 @@ export const videoGallerySelector: VideoGallerySelector = createSelector(
             toFlatCommunicationIdentifier(screenShareRemoteParticipant.identifier),
             screenShareRemoteParticipant.isMuted,
             checkIsSpeaking(screenShareRemoteParticipant),
+            screenShareRemoteParticipant.isRaisedHand,
             screenShareRemoteParticipant.videoStreams,
             screenShareRemoteParticipant.state,
             screenShareRemoteParticipant.displayName

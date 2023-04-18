@@ -97,6 +97,8 @@ export type VideoGalleryLocalParticipant = VideoGalleryParticipant;
 export interface VideoGalleryRemoteParticipant extends VideoGalleryParticipant {
   /** Whether participant is speaking or not */
   isSpeaking?: boolean;
+  /** Whether participant is raised a hand */
+  isRaisedHand?: boolean;
   /** Video stream of shared screen */
   screenShareStream?: VideoGalleryStream;
   /* @conditional-compile-remove(one-to-n-calling) */

@@ -165,6 +165,7 @@ export type CallParticipantListParticipant = ParticipantListParticipant & {
     isScreenSharing?: boolean;
     isMuted?: boolean;
     isSpeaking?: boolean;
+    isRaisedHand?: boolean;
     role?: Role;
 };
 
@@ -551,6 +552,8 @@ export const DEFAULT_COMPONENT_ICONS: {
     ControlButtonParticipantsContextualMenuItem: JSX.Element;
     ControlButtonScreenShareStart: JSX.Element;
     ControlButtonScreenShareStop: JSX.Element;
+    ControlButtonRaiseHand: JSX.Element;
+    ControlButtonLowerHand: JSX.Element;
     CancelFileUpload: JSX.Element;
     DownloadFile: JSX.Element;
     DataLossPreventionProhibited: JSX.Element;
@@ -583,6 +586,7 @@ export const DEFAULT_COMPONENT_ICONS: {
     OptionsMic: JSX.Element;
     OptionsSpeaker: JSX.Element;
     ParticipantItemMicOff: JSX.Element;
+    ParticipantItemRaisedHand: JSX.Element;
     ParticipantItemOptions: JSX.Element;
     ParticipantItemOptionsHovered: JSX.Element;
     ParticipantItemScreenShareStart: JSX.Element;
@@ -1324,6 +1328,7 @@ export interface ParticipantItemStrings {
     mutedIconLabel: string;
     participantStateHold?: string;
     participantStateRinging?: string;
+    raisedHandIconLabel: string;
     removeButtonLabel: string;
     sharingIconLabel: string;
 }
@@ -1893,6 +1898,7 @@ export interface VideoGalleryProps {
 
 // @public
 export interface VideoGalleryRemoteParticipant extends VideoGalleryParticipant {
+    isRaisedHand?: boolean;
     isSpeaking?: boolean;
     screenShareStream?: VideoGalleryStream;
     // @beta
@@ -1965,6 +1971,7 @@ export interface VideoTileProps {
     isMirrored?: boolean;
     isMuted?: boolean;
     isPinned?: boolean;
+    isRaisedHand?: boolean;
     isSpeaking?: boolean;
     noVideoAvailableAriaLabel?: string;
     onLongTouch?: () => void;

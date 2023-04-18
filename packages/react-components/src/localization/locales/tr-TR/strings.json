@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Adsız Katılımcı",
     "participantStateConnecting": "Aranıyor...",
     "participantStateRinging": "Arıyor...",
-    "participantStateHold": "Beklemede"
+    "participantStateHold": "Beklemede",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} yazıyor...",

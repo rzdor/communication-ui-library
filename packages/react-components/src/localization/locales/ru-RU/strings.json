@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Участник без имени",
     "participantStateConnecting": "Выполняется вызов...",
     "participantStateRinging": "Выполняется вызов...",
-    "participantStateHold": "На удержании"
+    "participantStateHold": "На удержании",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} вводит текст...",

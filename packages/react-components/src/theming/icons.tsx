@@ -258,6 +258,7 @@ export const DEFAULT_COMPONENT_ICONS = {
   OptionsMic: <Mic20Regular />,
   OptionsSpeaker: <Speaker220Regular />,
   ParticipantItemMicOff: <MicOff16Regular />,
+  ParticipantItemRaisedHand: <HandLeft16Regular />,
   ParticipantItemOptions: <></>,
   ParticipantItemOptionsHovered: <MoreHorizontal20Filled />,
   ParticipantItemScreenShareStart: <ShareScreenStart20Filled />,

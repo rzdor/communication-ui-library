@@ -182,6 +182,7 @@ export type CallCompositeIcons = {
   OptionsMic?: JSX.Element;
   OptionsSpeaker?: JSX.Element;
   ParticipantItemMicOff?: JSX.Element;
+  ParticipantItemMRaisedHand?: JSX.Element;
   ParticipantItemOptions?: JSX.Element;
   ParticipantItemOptionsHovered?: JSX.Element;
   ParticipantItemScreenShareStart?: JSX.Element;
@@ -269,6 +270,7 @@ export type CallWithChatCompositeIcons = {
   OptionsMic?: JSX.Element;
   OptionsSpeaker?: JSX.Element;
   ParticipantItemMicOff?: JSX.Element;
+  ParticipantIteRaisedHand?: JSX.Element;
   ParticipantItemScreenShareStart?: JSX.Element;
   VideoTileMicOff?: JSX.Element;
   LocalCameraSwitch?: JSX.Element;

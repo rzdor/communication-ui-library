@@ -1082,6 +1082,7 @@ export interface ParticipantItemStrings {
     mutedIconLabel: string;
     removeButtonLabel: string;
     sharingIconLabel: string;
+    raisedHandIconLabel: string;
 }
 
 // @public

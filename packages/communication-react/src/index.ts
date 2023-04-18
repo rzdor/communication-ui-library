@@ -77,7 +77,8 @@ export type {
   ErrorBarSelector as CallErrorBarSelector,
   ParticipantListSelector,
   MicrophoneButtonSelector,
-  ParticipantsButtonSelector
+  ParticipantsButtonSelector,
+  RaiseHandButtonSelector
 } from '../../calling-component-bindings/src';
 /* @conditional-compile-remove(PSTN-calls) */
 export type { HoldButtonSelector } from '../../calling-component-bindings/src';
@@ -116,6 +117,7 @@ export {
   ParticipantList,
   ParticipantsButton,
   ScreenShareButton,
+  RaiseHandButton,
   SendBox,
   StreamMedia,
   TypingIndicator,
@@ -221,6 +223,7 @@ export type {
   ReadReceiptsBySenderId,
   ScreenShareButtonProps,
   ScreenShareButtonStrings,
+  RaiseHandButtonProps,
   RaiseHandButtonStrings,
   SendBoxProps,
   SendBoxStrings,

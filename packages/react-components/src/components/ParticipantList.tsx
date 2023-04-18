@@ -8,7 +8,8 @@ import {
   merge,
   mergeStyles,
   PersonaPresence,
-  Stack
+  Stack,
+  Text
 } from '@fluentui/react';
 import React, { useCallback, useMemo } from 'react';
 import { useIdentifiers } from '../identifiers';
@@ -111,7 +112,7 @@ const onRenderParticipantDefault = (
   const menuItems = createParticipantMenuItems && createParticipantMenuItems(participant);
 
   const onRenderIcon =
-    callingParticipant?.isScreenSharing || callingParticipant?.isMuted
+    callingParticipant?.isScreenSharing || callingParticipant?.isMuted || callingParticipant?.isRaisedHand
       ? () => (
           <Stack horizontal={true} tokens={{ childrenGap: '0.5rem' }}>
             {callingParticipant.isScreenSharing && (
@@ -123,6 +124,20 @@ const onRenderParticipantDefault = (
             )}
             {callingParticipant.isMuted && (
               <Icon iconName="ParticipantItemMicOff" className={iconStyles} ariaLabel={strings.mutedIconLabel} />
+            )}
+            {callingParticipant.isRaisedHand && (
+              <Stack horizontal={true} tokens={{ childrenGap: '0.2rem' }}>
+                <Stack.Item>
+                  <Text>{0}</Text>
+                </Stack.Item>
+                <Stack.Item>
+                  <Icon
+                    iconName="ParticipantItemRaisedHand"
+                    className={iconStyles}
+                    ariaLabel={strings.raisedHandIconLabel}
+                  />
+                </Stack.Item>
+              </Stack>
             )}
           </Stack>
         )

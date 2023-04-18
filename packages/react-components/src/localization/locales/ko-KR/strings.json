@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "명명되지 않은 참가자",
     "participantStateConnecting": "전화 거는 중...",
     "participantStateRinging": "전화 거는 중...",
-    "participantStateHold": "대기 중"
+    "participantStateHold": "대기 중",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} 님이 입력 중...",

@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "Unnamed participant",
     "participantStateConnecting": "Calling...",
     "participantStateRinging": "Calling...",
-    "participantStateHold": "On hold"
+    "participantStateHold": "On hold",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} is typing ...",

@@ -8,7 +8,8 @@
     "displayNamePlaceholder": "未命名的參與者",
     "participantStateConnecting": "撥號中...",
     "participantStateRinging": "撥號中...",
-    "participantStateHold": "電話保留"
+    "participantStateHold": "電話保留",
+    "raisedHandIconLabel": "TODO:: raise hand icon label"
   },
   "typingIndicator": {
     "singleUser": "{user} 正在輸入...",

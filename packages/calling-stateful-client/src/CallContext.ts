@@ -437,6 +437,18 @@ export class CallContext {
     });
   }
 
+  public setParticipantIsRaisedHand(callId: string, participantKey: string, isRaisedHand: boolean): void {
+    this.modifyState((draft: CallClientState) => {
+      const call = draft.calls[this._callIdHistory.latestCallId(callId)];
+      if (call) {
+        const participant = call.remoteParticipants[participantKey];
+        if (participant) {
+          participant.isRaisedHand = isRaisedHand;
+        }
+      }
+    });
+  }
+
   public setParticipantVideoStream(callId: string, participantKey: string, stream: RemoteVideoStreamState): void {
     this.modifyState((draft: CallClientState) => {
       const call = draft.calls[this._callIdHistory.latestCallId(callId)];

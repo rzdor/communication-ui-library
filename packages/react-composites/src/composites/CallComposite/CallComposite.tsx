@@ -342,7 +342,9 @@ const MainScreen = (props: MainScreenProps): JSX.Element => {
   }
 
   /* @conditional-compile-remove(rooms) */
-  const permissions = _getPermissions(role === 'Unknown' || role === undefined ? props.roleHint : role);
+  const permissions = _getPermissions(
+    role === 'Unknown' || role === 'Co-organizer' || role === undefined ? props.roleHint : role
+  );
 
   // default retElement for stable version
   let retElement = pageElement;
