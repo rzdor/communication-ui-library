@@ -53,6 +53,7 @@ export interface CommonCallingHandlers {
   onHangUp: (forEveryone?: boolean) => Promise<void>;
   onRaiseHand: () => Promise<void>;
   onLowerHand: () => Promise<void>;
+  onLowerHands: (userId: string[]) => Promise<void>;
   onToggleRaiseHand: () => Promise<void>;
   /* @conditional-compile-remove(PSTN-calls) */
   onToggleHold: () => Promise<void>;
@@ -252,6 +253,12 @@ export const createDefaultCommonCallingHandlers = memoizeOne(
 
     const onLowerHand = async (): Promise<void> => await call?.feature(Features.RaiseHand)?.lowerHand();
 
+    const onLowerHands = async (userIds: string[]): Promise<void> => {
+      if (userIds.length > 0) {
+        await call?.feature(Features.RaiseHand)?.lowerHands([]);
+      }
+    };
+
     const onToggleRaiseHand = async (): Promise<void> => {
       const raiseHandFeature = call?.feature(Features.RaiseHand);
       const localUserId = callClient.getState().userId;
@@ -446,6 +453,7 @@ export const createDefaultCommonCallingHandlers = memoizeOne(
       onStopScreenShare,
       onRaiseHand,
       onLowerHand,
+      onLowerHands,
       onToggleCamera,
       onToggleMicrophone,
       onToggleScreenShare,

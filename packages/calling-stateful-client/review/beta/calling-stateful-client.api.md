@@ -216,9 +216,9 @@ export interface NetworkDiagnosticsState {
 
 // @public
 export interface RaiseHandCallFeature {
+    allRaisedHands: RaisedHand[];
     // (undocumented)
-    isUserRaisedHand: boolean;
-    raisedHands: RaisedHand[];
+    userRaisedHand?: RaisedHand;
 }
 
 // @public
@@ -232,9 +232,9 @@ export interface RemoteParticipantState {
     displayName?: string;
     identifier: CommunicationUserKind | PhoneNumberKind | MicrosoftTeamsUserKind | UnknownIdentifierKind;
     isMuted: boolean;
-    // (undocumented)
-    isRaisedHand: boolean;
     isSpeaking: boolean;
+    // (undocumented)
+    raisedHand?: RaisedHand;
     role?: ParticipantRole;
     state: RemoteParticipantState_2;
     videoStreams: {

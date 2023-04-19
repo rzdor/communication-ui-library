@@ -39,6 +39,7 @@ export type {
   ParticipantRemovedSystemMessage,
   ParticipantState,
   ReadReceiptsBySenderId,
+  RaisedHand,
   SystemMessage,
   SystemMessageCommon,
   TopicUpdatedSystemMessage,

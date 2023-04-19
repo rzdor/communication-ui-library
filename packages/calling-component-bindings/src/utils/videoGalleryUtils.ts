@@ -7,7 +7,7 @@ import {
 } from '@azure/communication-calling';
 import { memoizeFnAll, toFlatCommunicationIdentifier } from '@internal/acs-ui-common';
 import { RemoteParticipantState, RemoteVideoStreamState } from '@internal/calling-stateful-client';
-import { VideoGalleryRemoteParticipant, VideoGalleryStream } from '@internal/react-components';
+import { RaisedHand, VideoGalleryRemoteParticipant, VideoGalleryStream } from '@internal/react-components';
 import memoizeOne from 'memoize-one';
 import { _isRingingPSTNParticipant } from './callUtils';
 import { checkIsSpeaking } from './SelectorUtils';
@@ -43,7 +43,7 @@ export const _videoGalleryRemoteParticipantsMemo = (
             toFlatCommunicationIdentifier(participant.identifier),
             participant.isMuted,
             checkIsSpeaking(participant),
-            participant.isRaisedHand,
+            participant.raisedHand,
             participant.videoStreams,
             state,
             participant.displayName
@@ -58,7 +58,7 @@ const memoizedAllConvertRemoteParticipant = memoizeFnAll(
     userId: string,
     isMuted: boolean,
     isSpeaking: boolean,
-    isRaisedHand: boolean,
+    raisedHand: RaisedHand | undefined,
     videoStreams: { [key: number]: RemoteVideoStreamState },
     state: RemoteParticipantConnectionState,
     displayName?: string
@@ -67,7 +67,7 @@ const memoizedAllConvertRemoteParticipant = memoizeFnAll(
       userId,
       isMuted,
       isSpeaking,
-      isRaisedHand,
+      raisedHand,
       videoStreams,
       state,
       displayName
@@ -80,7 +80,7 @@ export const convertRemoteParticipantToVideoGalleryRemoteParticipant = (
   userId: string,
   isMuted: boolean,
   isSpeaking: boolean,
-  isRaisedHand: boolean,
+  raisedHand: RaisedHand | undefined,
   videoStreams: { [key: number]: RemoteVideoStreamState },
   state: RemoteParticipantConnectionState,
   displayName?: string
@@ -109,7 +109,7 @@ export const convertRemoteParticipantToVideoGalleryRemoteParticipant = (
     displayName,
     isMuted,
     isSpeaking,
-    isRaisedHand,
+    raisedHand,
     videoStream,
     screenShareStream,
     isScreenSharingOn: screenShareStream !== undefined && screenShareStream.isAvailable,

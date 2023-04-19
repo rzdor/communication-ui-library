@@ -148,8 +148,8 @@ export class CallContext {
         existingCall.remoteParticipants = call.remoteParticipants;
         existingCall.transcription.isTranscriptionActive = call.transcription.isTranscriptionActive;
         existingCall.recording.isRecordingActive = call.recording.isRecordingActive;
-        existingCall.raiseHand.raisedHands = call.raiseHand.raisedHands;
-        existingCall.raiseHand.isUserRaisedHand = call.raiseHand.isUserRaisedHand;
+        existingCall.raiseHand.allRaisedHands = call.raiseHand.allRaisedHands;
+        existingCall.raiseHand.userRaisedHand = call.raiseHand.userRaisedHand;
         /* @conditional-compile-remove(rooms) */
         existingCall.role = call.role;
         /* @conditional-compile-remove(total-participant-count) */
@@ -337,12 +337,11 @@ export class CallContext {
     this.modifyState((draft: CallClientState) => {
       const call = draft.calls[this._callIdHistory.latestCallId(callId)];
       if (call) {
-        call.raiseHand.raisedHands = raisedHands;
-        const isLocalRaisedHand = raisedHands.find(
+        call.raiseHand.allRaisedHands = raisedHands;
+        call.raiseHand.userRaisedHand = raisedHands.find(
           (raisedHand) =>
             toFlatCommunicationIdentifier(raisedHand.identifier) === toFlatCommunicationIdentifier(this._state.userId)
         );
-        call.raiseHand.isUserRaisedHand = isLocalRaisedHand ? true : false;
       }
     });
   }
@@ -437,13 +436,13 @@ export class CallContext {
     });
   }
 
-  public setParticipantIsRaisedHand(callId: string, participantKey: string, isRaisedHand: boolean): void {
+  public setParticipantIsRaisedHand(callId: string, participantKey: string, raisedHand: RaisedHand | undefined): void {
     this.modifyState((draft: CallClientState) => {
       const call = draft.calls[this._callIdHistory.latestCallId(callId)];
       if (call) {
         const participant = call.remoteParticipants[participantKey];
         if (participant) {
-          participant.isRaisedHand = isRaisedHand;
+          participant.raisedHand = raisedHand;
         }
       }
     });

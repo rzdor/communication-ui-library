@@ -3,7 +3,7 @@
 
 /* @conditional-compile-remove(one-to-n-calling) */
 /* @conditional-compile-remove(PSTN-calls) */
-import { ParticipantState } from './ParticipantListParticipant';
+import { ParticipantState, RaisedHand } from './ParticipantListParticipant';
 
 /**
  * Scaling mode of a {@link VideoGalleryStream}.
@@ -98,7 +98,7 @@ export interface VideoGalleryRemoteParticipant extends VideoGalleryParticipant {
   /** Whether participant is speaking or not */
   isSpeaking?: boolean;
   /** Whether participant is raised a hand */
-  isRaisedHand?: boolean;
+  raisedHand?: RaisedHand;
   /** Video stream of shared screen */
   screenShareStream?: VideoGalleryStream;
   /* @conditional-compile-remove(one-to-n-calling) */

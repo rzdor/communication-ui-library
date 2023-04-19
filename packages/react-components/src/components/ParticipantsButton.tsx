@@ -122,6 +122,10 @@ export interface ParticipantsButtonProps extends ControlBarButtonProps {
    */
   onRemoveParticipant?: (userId: string) => void;
   /**
+   * Callback to render the context menu for each participant
+   */
+  onLowerParticipantHand?: (userId: string) => void;
+  /**
    * Callback to render custom menu items for each participant.
    */
   onFetchParticipantMenuItems?: ParticipantMenuItemsCallback;
@@ -177,6 +181,7 @@ export const ParticipantsButton = (props: ParticipantsButtonProps): JSX.Element 
     onRenderParticipant,
     onRenderAvatar,
     onRemoveParticipant,
+    onLowerParticipantHand,
     onFetchParticipantMenuItems,
     showParticipantOverflowTooltip
   } = props;
@@ -206,6 +211,7 @@ export const ParticipantsButton = (props: ParticipantsButtonProps): JSX.Element 
         onRenderParticipant={onRenderParticipant}
         onRenderAvatar={onRenderAvatar}
         onRemoveParticipant={onRemoveParticipant}
+        onLowerParticipantHand={onLowerParticipantHand}
         onFetchParticipantMenuItems={onFetchParticipantMenuItems}
         styles={styles?.menuStyles?.participantListStyles}
         showParticipantOverflowTooltip={showParticipantOverflowTooltip}
@@ -215,6 +221,7 @@ export const ParticipantsButton = (props: ParticipantsButtonProps): JSX.Element 
     excludeMe,
     myUserId,
     onRemoveParticipant,
+    onLowerParticipantHand,
     onRenderAvatar,
     onRenderParticipant,
     participants,

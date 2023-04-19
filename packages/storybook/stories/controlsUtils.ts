@@ -73,13 +73,11 @@ const defaultControlsGridParticipants = [
   }
 ];
 
-const defaultLocalParticipant = [
-  { name: 'You', status: 'Connected', isMuted: false, isScreenSharing: false, isRaisedHand: false }
-];
+const defaultLocalParticipant = [{ name: 'You', status: 'Connected', isMuted: false, isScreenSharing: false }];
 const defaultRemoteParticipants = [
-  { name: 'Rick', status: 'InLobby', isMuted: false, isScreenSharing: false, isRaisedHand: false },
-  { name: 'Daryl', status: 'Connecting', isMuted: false, isScreenSharing: false, isRaisedHand: false },
-  { name: 'Michonne', status: 'Idle', isMuted: false, isScreenSharing: false, isRaisedHand: false }
+  { name: 'Rick', status: 'InLobby', isMuted: false, isScreenSharing: false },
+  { name: 'Daryl', status: 'Connecting', isMuted: false, isScreenSharing: false },
+  { name: 'Michonne', status: 'Idle', isMuted: false, isScreenSharing: false }
 ];
 
 const defaultTypingUsers = [
@@ -269,7 +267,6 @@ export const controlsToAdd = {
   isMuted: { control: 'boolean', defaultValue: false, name: 'Is muted' },
   isSpeaking: { control: 'boolean', defaultValue: false, name: 'Is Speaking' },
   isScreenSharing: { control: 'boolean', defaultValue: false, name: 'Is screen sharing' },
-  isRaisedHand: { control: 'boolean', defaultValue: false, name: 'Is raised hand' },
   isSendBoxWithWarning: { control: 'boolean', defaultValue: false, name: 'Has warning/information message' },
   isVideoAvailable: { control: 'boolean', defaultValue: true, name: 'Is video available' },
   isVideoMirrored: { control: 'boolean', defaultValue: false, name: 'Is video mirrored' },

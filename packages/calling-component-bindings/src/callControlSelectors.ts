@@ -10,7 +10,7 @@ import {
   getDeviceManager,
   getIsMuted,
   getIsScreenSharingOn,
-  getIsRaisedHand,
+  getUserRaisedHand,
   getLocalVideoStreams
 } from './baseSelectors';
 /* @conditional-compile-remove(PSTN-calls) */
@@ -140,10 +140,10 @@ export type RaiseHandButtonSelector = (
  * @public
  */
 export const raiseHandButtonSelector: RaiseHandButtonSelector = reselect.createSelector(
-  [getIsRaisedHand, /* @conditional-compile-remove(PSTN-calls) */ getCallState],
-  (isRaisedHand, /* @conditional-compile-remove(PSTN-calls) */ callState) => {
+  [getUserRaisedHand, /* @conditional-compile-remove(PSTN-calls) */ getCallState],
+  (raisedHand, /* @conditional-compile-remove(PSTN-calls) */ callState) => {
     return {
-      checked: isRaisedHand,
+      checked: raisedHand ? true : false,
       /* @conditional-compile-remove(PSTN-calls) */
       disabled: callState === 'InLobby' ? true : callState === 'Connecting' ?? false
     };

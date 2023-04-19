@@ -1,12 +1,14 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-import { Call, CallAgent, StartCallOptions } from '@azure/communication-calling';
+import { Call, CallAgent, Features, StartCallOptions } from '@azure/communication-calling';
 /* @conditional-compile-remove(dialpad) */ /* @conditional-compile-remove(PSTN-calls) */
 /* @conditional-compile-remove(PSTN-calls) */
 import { AddPhoneNumberOptions } from '@azure/communication-calling';
 /* @conditional-compile-remove(PSTN-calls) */
 import {
+  CommunicationUserIdentifier,
+  MicrosoftTeamsUserIdentifier,
   isCommunicationUserIdentifier,
   isMicrosoftTeamsUserIdentifier,
   isPhoneNumberIdentifier
@@ -72,6 +74,12 @@ export const createDefaultCallingHandlers = memoizeOne(
       ): Promise<void> => {
         const participant = _toCommunicationIdentifier(userId);
         await call?.removeParticipant(participant);
+      },
+      onLowerHands: async (userIds: string[]): Promise<void> => {
+        const participants = userIds.map((userId) => {
+          return _toCommunicationIdentifier(userId) as CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
+        });
+        await call?.feature(Features.RaiseHand).lowerHands(participants);
       }
     };
   }

@@ -76,8 +76,7 @@ function participantWithName(name: string): RemoteParticipantState {
     state: 'Connected',
     videoStreams: {},
     isMuted: false,
-    isSpeaking: false,
-    isRaisedHand: false
+    isSpeaking: false
   };
 }
 
@@ -88,8 +87,7 @@ function participantWithoutName(userId: string): RemoteParticipantState {
     state: 'Connected',
     videoStreams: {},
     isMuted: false,
-    isSpeaking: false,
-    isRaisedHand: false
+    isSpeaking: false
   };
 }
 

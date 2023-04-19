@@ -179,6 +179,7 @@ export class AzureCommunicationCallWithChatAdapter implements CallWithChatAdapte
     this.stopScreenShare.bind(this);
     this.raiseHand.bind(this);
     this.lowerHand.bind(this);
+    this.lowerHands.bind(this);
     this.removeParticipant.bind(this);
     this.createStreamView.bind(this);
     this.disposeStreamView.bind(this);
@@ -335,7 +336,11 @@ export class AzureCommunicationCallWithChatAdapter implements CallWithChatAdapte
   }
   /** Lower hand for local user. */
   public async lowerHand(): Promise<void> {
-    await this.callAdapter.raiseHand();
+    await this.callAdapter.lowerHand();
+  }
+  /** Lower hands for remote users. */
+  public async lowerHands(userIds: string[]): Promise<void> {
+    await this.callAdapter.lowerHands(userIds);
   }
   /** Create a stream view for a remote participants video feed. */
   public async createStreamView(

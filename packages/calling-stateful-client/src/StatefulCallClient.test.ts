@@ -532,22 +532,22 @@ describe('Stateful call client', () => {
 
     raiseHand.raiseHand();
     expect(
-      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.allRaisedHands.length === 1)
     ).toBe(true);
 
     raiseHand.lowerHand();
     expect(
-      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 0)
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.allRaisedHands.length === 0)
     ).toBe(true);
 
     raiseHand.raiseHand();
     expect(
-      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.allRaisedHands.length === 1)
     ).toBe(true);
 
     raiseHand.lowerAllHands();
     expect(
-      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 0)
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.allRaisedHands.length === 0)
     ).toBe(true);
   });
 
@@ -560,7 +560,7 @@ describe('Stateful call client', () => {
 
     raiseHand.raiseHand();
     expect(
-      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.raisedHands.length === 1)
+      await waitWithBreakCondition(() => client.getState().calls[callId]?.raiseHand.allRaisedHands.length === 1)
     ).toBe(true);
 
     agent.testHelperPopCall();

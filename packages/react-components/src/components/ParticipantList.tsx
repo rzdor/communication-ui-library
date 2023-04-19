@@ -78,6 +78,8 @@ export type ParticipantListProps = {
   onRenderAvatar?: OnRenderAvatarCallback;
   /** Optional callback to render the context menu for each participant  */
   onRemoveParticipant?: (userId: string) => void;
+  /** Optional callback to render the context menu for each participant  */
+  onLowerHands?: (userIds: string[]) => void;
   /** Optional callback to render custom menu items for each participant. */
   onFetchParticipantMenuItems?: ParticipantMenuItemsCallback;
   /** Optional callback when rendered ParticipantItem is clicked */
@@ -112,7 +114,7 @@ const onRenderParticipantDefault = (
   const menuItems = createParticipantMenuItems && createParticipantMenuItems(participant);
 
   const onRenderIcon =
-    callingParticipant?.isScreenSharing || callingParticipant?.isMuted || callingParticipant?.isRaisedHand
+    callingParticipant?.isScreenSharing || callingParticipant?.isMuted || callingParticipant?.raisedHand
       ? () => (
           <Stack horizontal={true} tokens={{ childrenGap: '0.5rem' }}>
             {callingParticipant.isScreenSharing && (
@@ -125,10 +127,10 @@ const onRenderParticipantDefault = (
             {callingParticipant.isMuted && (
               <Icon iconName="ParticipantItemMicOff" className={iconStyles} ariaLabel={strings.mutedIconLabel} />
             )}
-            {callingParticipant.isRaisedHand && (
+            {callingParticipant.raisedHand && (
               <Stack horizontal={true} tokens={{ childrenGap: '0.2rem' }}>
                 <Stack.Item>
-                  <Text>{0}</Text>
+                  <Text>{callingParticipant.raisedHand?.order}</Text>
                 </Stack.Item>
                 <Stack.Item>
                   <Icon
@@ -197,6 +199,7 @@ export const ParticipantList = (props: ParticipantListProps): JSX.Element => {
     myUserId,
     participants,
     onRemoveParticipant,
+    onLowerHands,
     onRenderAvatar,
     onRenderParticipant,
     onFetchParticipantMenuItems,
@@ -228,6 +231,18 @@ export const ParticipantList = (props: ParticipantListProps): JSX.Element => {
         });
       }
 
+      const callingParticipant = participant as CallParticipantListParticipant;
+      if (callingParticipant.raisedHand && onLowerHands) {
+        menuItems.push({
+          key: 'lowerHand',
+          text: strings.lowerParticipantHandButtonLabel,
+          onClick: () => onLowerHands([participant.userId]),
+          itemProps: {
+            styles: props.styles?.participantItemStyles?.participantSubMenuItemsStyles
+          }
+        });
+      }
+
       if (onFetchParticipantMenuItems) {
         menuItems = onFetchParticipantMenuItems(participant.userId, myUserId, menuItems);
       }
@@ -239,8 +254,10 @@ export const ParticipantList = (props: ParticipantListProps): JSX.Element => {
       myUserId,
       onFetchParticipantMenuItems,
       onRemoveParticipant,
+      onLowerHands,
       props.styles?.participantItemStyles?.participantSubMenuItemsStyles,
-      strings.removeButtonLabel
+      strings.removeButtonLabel,
+      strings.lowerParticipantHandButtonLabel
     ]
   );
 

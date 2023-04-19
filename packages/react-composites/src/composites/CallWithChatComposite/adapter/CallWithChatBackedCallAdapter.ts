@@ -118,6 +118,7 @@ export class CallWithChatBackedCallAdapter implements CallAdapter {
   public stopScreenShare = async (): Promise<void> => await this.callWithChatAdapter.stopScreenShare();
   public raiseHand = async (): Promise<void> => await this.callWithChatAdapter.raiseHand();
   public lowerHand = async (): Promise<void> => await this.callWithChatAdapter.lowerHand();
+  public lowerHands = async (userIds: string[]): Promise<void> => await this.callWithChatAdapter.lowerHands(userIds);
   public removeParticipant = async (
     userId: string | /* @conditional-compile-remove(PSTN-calls) */ CommunicationIdentifier
   ): Promise<void> => {

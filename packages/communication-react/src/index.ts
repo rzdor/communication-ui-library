@@ -225,6 +225,7 @@ export type {
   ScreenShareButtonStrings,
   RaiseHandButtonProps,
   RaiseHandButtonStrings,
+  RaisedHand,
   SendBoxProps,
   SendBoxStrings,
   SendBoxStylesProps,

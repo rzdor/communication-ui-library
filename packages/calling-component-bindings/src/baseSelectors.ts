@@ -14,6 +14,7 @@ import {
   CallErrors,
   DiagnosticsCallFeatureState
 } from '@internal/calling-stateful-client';
+import { RaisedHand } from '@internal/react-components';
 
 /**
  * Common props used to reference calling declarative client state.
@@ -73,8 +74,8 @@ export const getIsScreenSharingOn = (state: CallClientState, props: CallingBaseS
 /**
  * @private
  */
-export const getIsRaisedHand = (state: CallClientState, props: CallingBaseSelectorProps): boolean | undefined => {
-  return state.calls[props.callId]?.raiseHand?.isUserRaisedHand;
+export const getUserRaisedHand = (state: CallClientState, props: CallingBaseSelectorProps): RaisedHand | undefined => {
+  return state.calls[props.callId]?.raiseHand?.userRaisedHand;
 };
 
 /**

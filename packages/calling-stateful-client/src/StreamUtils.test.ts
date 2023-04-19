@@ -86,7 +86,7 @@ function createMockCall(mockCallId: string): CallState {
     remoteParticipants: {},
     remoteParticipantsEnded: {},
     recording: { isRecordingActive: false },
-    raiseHand: { raisedHands: [], isUserRaisedHand: false },
+    raiseHand: { allRaisedHands: [] },
     transcription: { isTranscriptionActive: false },
     screenShareRemoteParticipant: undefined,
     startTime: new Date(),
@@ -106,8 +106,7 @@ function addMockRemoteStreamAndParticipant(
     state: 'Connected',
     videoStreams: {},
     isMuted: true,
-    isSpeaking: false,
-    isRaisedHand: false
+    isSpeaking: false
   };
   const remoteVideoStream: RemoteVideoStreamState = {
     id: streamId,

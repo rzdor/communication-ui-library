@@ -377,6 +377,14 @@ export interface CallAdapterCallOperations {
    */
   lowerHand(): Promise<void>;
   /**
+   * Lower hand for participants from the call.
+   *
+   * @param userId - List of Ids of the participant
+   *
+   * @public
+   */
+  lowerHands(userIds: string[]): Promise<void>;
+  /**
    * Remove a participant from the call.
    *
    * @param userId - Id of the participant to be removed

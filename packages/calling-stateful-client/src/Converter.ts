@@ -70,7 +70,7 @@ export function convertSdkParticipantToDeclarativeParticipant(
     videoStreams: declarativeVideoStreams,
     isMuted: participant.isMuted,
     isSpeaking: participant.isSpeaking,
-    isRaisedHand: false // TODO: [raise-hand] add raise hand state
+    raisedHand: undefined // TODO: [raise-hand] add raise hand state
   };
 }
 
@@ -107,7 +107,7 @@ export function convertSdkCallToDeclarativeCall(call: CallCommon): CallState {
     remoteParticipants: declarativeRemoteParticipants,
     remoteParticipantsEnded: {},
     recording: { isRecordingActive: false },
-    raiseHand: { raisedHands: [], isUserRaisedHand: false },
+    raiseHand: { allRaisedHands: [] },
     transcription: { isTranscriptionActive: false },
     screenShareRemoteParticipant: undefined,
     startTime: new Date(),

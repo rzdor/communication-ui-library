@@ -97,6 +97,10 @@ export class MockCallAdapter implements CallAdapter {
   lowerHand(): Promise<void> {
     throw Error('lowerHand not implemented');
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  lowerHands(userIds: string[]): Promise<void> {
+    throw Error('lowerHand not implemented');
+  }
   removeParticipant(): Promise<void> {
     throw Error('removeParticipant not implemented');
   }
@@ -179,7 +183,7 @@ const defaultCallAdapterState: CallAdapterState = {
     direction: 'Incoming',
     transcription: { isTranscriptionActive: false },
     recording: { isRecordingActive: false },
-    raiseHand: { raisedHands: [], isUserRaisedHand: false },
+    raiseHand: { allRaisedHands: [] },
     startTime: new Date(500000000000),
     endTime: new Date(500000000000),
     diagnostics: { network: { latest: {} }, media: { latest: {} } },

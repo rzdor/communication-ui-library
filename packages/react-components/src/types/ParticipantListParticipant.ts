@@ -20,7 +20,7 @@ export type CallParticipantListParticipant = ParticipantListParticipant & {
   /** Whether calling participant is speaking */
   isSpeaking?: boolean;
   /** Whether calling participant is raised hand */
-  isRaisedHand?: boolean;
+  raisedHand?: RaisedHand;
   /* @conditional-compile-remove(rooms) */
   /** Role of participant in Rooms call */
   role?: Role;
@@ -31,9 +31,9 @@ export type CallParticipantListParticipant = ParticipantListParticipant & {
  *
  * @public
  */
-// export type RaisedHand = {
-//   order: number;
-// };
+export type RaisedHand = {
+  order: number;
+};
 
 /**
  * Participants displayed in a {@link ParticipantList}.
